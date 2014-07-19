@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use Time::HiRes qw(gettimeofday);
 
-my $filepath = '/opt/prnl/log.txt';
+my $filepath = '/home/bc/projects/prnl/log.txt';
 
 sub Handler()
 {
@@ -150,14 +150,18 @@ sub ListKeyWords()
   open(my $fh, "<", $filepath);
   Assert(defined($fh), "Error with jrnl oppening");
 
+  my %key_words;
   while( my $entry = <$fh>)
   {
-    if($entry =~ /(@[a-zA-Z0-9]*)/ )
+    if($entry =~ /(@[a-zA-Z0-9]*)/)
     {
-      print $1, "\n";
+        if(!defined($key_words{$1}))
+        {
+          print $1, "\n";
+          $key_words{$1} = 1;
+        }
     }
   }
-
   close($fh);
 }
 
