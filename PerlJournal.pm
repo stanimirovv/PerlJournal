@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use Time::HiRes qw(gettimeofday);
 
-my $filepath = '/home/bc/projects/prnl/log.txt';
+my $filepath = '/opt/prnl/log.txt';
 
 sub Handler()
 {
