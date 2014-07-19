@@ -1,0 +1,11 @@
+echo 'Creating directory...';
+eval 'sudo mkdir /opt/prnl/';
+echo 'Creating log...';
+eval 'sudo touch /opt/prnl/log.txt';
+echo 'Installing modules...';
+eval 'sudo cp PerlJournal.pm /opt/prnl/PerlJournal.pm';
+echo 'Installing scripts...';
+eval 'sudo cp perl-journal.pl /opt/prnl/perl-journal.pl';
+echo 'Creating alias';
+echo 'alias prnl="perl /opt/prnl/perl-journal.pl"' >> ~/.bashrc;
+echo 'Done';
